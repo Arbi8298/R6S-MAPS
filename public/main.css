@@ -46,6 +46,7 @@ body{
     padding: 5px;
     margin: 0px 10px 20px;
     transition: transform 0.3s ease;
+    cursor: pointer;
 }
 .map_button:hover{
     transform: scale(1.15);
