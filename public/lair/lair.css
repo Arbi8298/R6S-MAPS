@@ -136,6 +136,10 @@ body{
     background-color: rgba(178, 34, 34, 0.7);
     border: 2px solid darkred;
 }
+.custom{
+    background-color: rgba(95, 158, 160, 0.7);
+    border: 2px solid darkslategray;
+}
 .transparent{
     background-color: transparent;
     border: none;
