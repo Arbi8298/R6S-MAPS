@@ -433,7 +433,6 @@ window.onload = function() {
             for (var i = 0; i < S_2f.length; i++) {
                 S_2f[i].style.display = "none";
             }
-            show_notification();
         } else {
             btn_bs_b1.classList.remove('pushed');
         }
@@ -469,7 +468,6 @@ window.onload = function() {
             for (var i = 0; i < S_2f.length; i++) {
                 S_2f[i].style.display = "none";
             }
-            show_notification();
         } else {
             btn_bs_1fE.classList.remove('pushed');
         }
@@ -487,7 +485,6 @@ window.onload = function() {
             for (var i = 0; i < S_2f.length; i++) {
                 S_2f[i].style.display = "block";
             }
-            show_notification();
         } else {
             btn_bs_2f.classList.remove('pushed');
         }

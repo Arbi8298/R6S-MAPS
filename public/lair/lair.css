@@ -162,7 +162,7 @@ body{
 .reinforcement{
     position: absolute;
     padding: 0px;
-    border: none;
+    border: 1px solid white;
     background-color: blue;
 }
 .angle{
@@ -184,7 +184,7 @@ body{
 .barricade{
     position: absolute;
     padding: 0px;
-    border: none;
+    border: 1px solid yellow;
     background-color: olivedrab;
 }
 .setup>span{
