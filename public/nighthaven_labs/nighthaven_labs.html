@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>R6S MAPS</title>
+  <link rel="stylesheet" type="text/css" href="nighthaven_labs.css">
+</head>
+
+<body>
+  <div id="head_container">
+    <button id="home_button" onclick="window.location.href='../index.html'">R6S MAPS</button>
+  </div>
+  <div id="button_container">
+    <div id="game_mode_container">
+      <span class="game_mode text">Objective</span>
+      <button class="game_mode" id="gm_none">none</button>
+      <button class="game_mode" id="gm_bomb">bomb</button>
+      <button class="game_mode" id="gm_hostage">hostage</button>
+      <button class="game_mode" id="gm_secure">secure area</button>
+    </div>
+    <div id="basic_setting_container">
+      <span class="basic_setting text">Setup</span>
+      <button class="basic_setting" id="bs_none">none</button>
+      <button class="basic_setting" id="bs_b1">b1</button>
+      <button class="basic_setting" id="bs_1fW">1f West</button>
+      <button class="basic_setting" id="bs_1fE">1f East</button>
+      <button class="basic_setting" id="bs_2f">2f</button>
+    </div>
+    <div id="floor_container">
+      <span class="floor text">Floor</span>
+      <button class="floor" id="f_b1">b1</button>
+      <button class="floor" id="f_1f">1f</button>
+      <button class="floor" id="f_2f">2f</button>
+      <button class="floor" id="f_roof">roof</button>
+    </div>
+  </div>
+  <div id="map_container">
+    <div class="map">
+      <img class="b1" src="nighthaven_labs_basement.jpg" alt="Nighthaven Labs b1" style="display: none;">
+      <img class="1f" src="nighthaven_labs_1f.jpg" alt="Nighthaven Labs 1f">
+      <img class="2f" src="nighthaven_labs_2f.jpg" alt="Nighthaven Labs 2f" style="display: none;">
+      <img class="roof" src="nighthaven_labs_roof.jpg" alt="Nighthaven Labs roof" style="display: none;">
+      <div class="setup_guide" style="position: absolute; width: 216px; height: 90px; bottom: 86px; right: 14px; opacity: 60%; background-color: black; display: none;"></div>
+      <img class="setup_guide" src="setup_guide.png" alt="Setup Guide" style="position: absolute; width: 216px; height: 90px; bottom: 86px; right: 14px; width: 216px; height: 90px; opacity: 100%; margin: 0px; display: none;">
+    </div>
+
+    <div class="location_name">
+      <!--
+        <button class="b1/1f/2f location interior/exterior/custom" style="width: 20px; height: 20px; top: 100px; left: 200px;" data-img="img/.jpg" data-En="" data-Ko=""></button>
+      -->
+      <button class="b1 location interior transparent" style="width: 32px; height: 13px; top: 238px; left: 483px;" data-img="img/Cargo Stairs.jpg" data-En="Cargo Stairs" data-Ko="화물실 계단"></button>
+      <button class="b1 location interior transparent" style="clip-path: polygon(64% 0%, 64% 32%, 0% 32%, 0% 100%, 72% 100%, 100% 82%, 100% 0%); width: 50px; height: 39px; top: 238px; left: 483px;" data-img="img/Cargo Room.jpg" data-En="Cargo Room" data-Ko="화물실 지하"></button>
+      <button class="b1 location interior transparent" style="clip-path: polygon(25% 0%, 25% 24%, 0% 24%, 0% 84%, 74% 84%, 74% 100%, 100% 100%, 100% 0%); width: 50px; height: 63px; top: 275px; left: 471px;" data-img="img/Tank.jpg" data-En="Tank" data-Ko="탱크"></button>
+      <button class="b1 location interior transparent" style="clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 100% 32%, 64% 32%, 64% 0%); width: 38px; height: 36px; top: 326px; left: 484px;" data-img="img/Animus.jpg" data-En="Animus" data-Ko="아니무스"></button>
+      <button class="b1 location interior transparent" style="width: 42px; height: 20px; top: 252px; left: 531px;" data-img="img/Nanotech Hallway.jpg" data-En="Nanotech Hallway" data-Ko="나노테크 복도"></button>
+      <button class="b1 location interior transparent" style="clip-path: polygon(23% 0%, 0% 13%, 0% 80%, 30% 80%, 30% 100%, 68% 100%, 68% 80%, 100% 80%, 100% 0%); width: 53px; height: 53px; top: 270px; left: 520px;" data-img="img/Nanotech.jpg" data-En="Nanotech" data-Ko="나노테크"></button>
+      <button class="b1 location interior transparent" style="clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 100% 0%, 66% 0%, 66% 23%, 32% 23%, 32% 0%); width: 53px; height: 52px; top: 310px; left: 520px;" data-img="img/Assembly.jpg" data-En="Assembly" data-Ko="조립실"></button>
+      <button class="b1 location interior transparent" style="clip-path: polygon(0% 0%, 0% 100%, 56% 100%, 56% 54%, 100% 54%, 100% 0%); width: 58px; height: 76px; top: 252px; left: 571px;" data-img="img/Exosuit.jpg" data-En="Exosuit" data-Ko="엑소슈트"></button>
+      <button class="b1 location interior transparent" style="width: 23px; height: 27px; top: 292px; left: 606px;" data-img="img/Vending Stairs.jpg" data-En="Vending Stairs" data-Ko="자판기 계단"></button>
+      <button class="b1 location exterior transparent" style="clip-path: polygon(0% 46%, 0% 100%, 100% 100%, 100% 0%, 82% 0%, 82% 78%, 29% 78%, 29% 46%); width: 110px; height: 62px; top: 332px; left: 484px;" data-img="img/Emergency Exit.jpg" data-En="Emergency Exit" data-Ko="비상구"></button>
+      <button class="b1 location exterior transparent" style="width: 48px; height: 22px; top: 360px; left: 515px;" data-img="img/Delivery Area.jpg" data-En="Delivery Area" data-Ko="운송 구역"></button>
+
+      <button class="1f location interior transparent" style="clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 100% 48%, 80% 48%, 80% 70%, 26% 70%, 26% 48%, 100% 48%, 100% 0%); width: 66px; height: 60px; top: 141px; left: 572px;" data-img="img/Lobby.jpg" data-En="Lobby" data-Ko="로비"></button>
+      <button class="1f location interior transparent" style="width: 38px; height: 17px; top: 168px; left: 588px;" data-img="img/Lobby Stairs1.jpg" data-En="Lobby Stairs" data-Ko="로비 계단"></button>
+      <button class="1f location interior transparent" style="clip-path: polygon(0% 0%, 0% 70%, 100% 100%, 100% 0%); width: 18px; height: 55px; top: 199px; left: 572px;" data-img="img/Cafeteria Hallway.jpg" data-En="Cafeteria Hallway" data-Ko="구내식당 복도"></button>
+      <button class="1f location interior transparent" style="clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 72% 0%); width: 78px; height: 20px; top: 235px; left: 514px;" data-img="img/Lounge Hallway.jpg" data-En="Lounge Hallway" data-Ko="라운지 복도"></button>
+      <button class="1f location interior transparent" style="clip-path: polygon(0% 0%, 0% 100%, 54% 100%, 54% 38%, 100% 38%, 100% 0%); width: 86px; height: 74px; top: 199px; left: 588px;" data-img="img/Cafeteria.jpg" data-En="Cafeteria" data-Ko="구내식당"></button>
+      <button class="1f location interior transparent" style="width: 40px; height: 47px; top: 226px; left: 634px;" data-img="img/Kitchen.jpg" data-En="Kitchen" data-Ko="주방"></button>
+      <button class="1f location interior transparent" style="width: 24px; height: 18px; top: 271px; left: 634px;" data-img="img/Pantry.jpg" data-En="Pantry" data-Ko="식료품 저장실"></button>
+      <button class="1f location interior transparent" style="clip-path: polygon(0% 0%, 0% 100%, 50% 100%, 50% 60%, 100% 60%, 100% 0%); width: 48px; height: 48px; top: 271px; left: 588px;" data-img="img/Vending.jpg" data-En="Vending" data-Ko="자판기"></button>
+      <button class="1f location interior transparent" style="width: 19px; height: 20px; top: 300px; left: 617px;" data-img="img/Vending Stairs.jpg" data-En="Vending Stairs" data-Ko="자판기 계단"></button>
+      <button class="1f location interior transparent" style="width: 53px; height: 45px; top: 253px; left: 535px;" data-img="img/Lounge.jpg" data-En="Lounge" data-Ko="라운지"></button>
+      <button class="1f location interior transparent" style="width: 18px; height: 31px; top: 296px; left: 555px;" data-img="img/Storage Entrance.jpg" data-En="Storage Entrance" data-Ko="저장실 입구"></button>
+      <button class="1f location interior transparent" style="clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 100% 48%, 64% 48%, 64% 0%); width: 49px; height: 63px; top: 296px; left: 524px;" data-img="img/Storage.jpg" data-En="Storage" data-Ko="저장실"></button>
+      <button class="1f location interior transparent" style="width: 44px; height: 14px; top: 223px; left: 491px;" data-img="img/CC Stairs1.jpg" data-En="CC Stairs" data-Ko="지휘본부 계단"></button>
+      <button class="1f location interior transparent" style="clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 100% 50%, 62% 50%, 62% 36%, 24% 36%, 24% 0%); width: 61px; height: 38px; top: 235px; left: 477px;" data-img="img/Cargo.jpg" data-En="Cargo" data-Ko="화물실 1층"></button>
+      <button class="1f location interior transparent" style="width: 26px; height: 14px; top: 235px; left: 490px;" data-img="img/Cargo Stairs.jpg" data-En="Cargo Stairs" data-Ko="화물실 계단"></button>
+      <button class="1f location interior transparent" style="clip-path: polygon(0% 0%, 0% 100%, 70% 100%, 70% 45%, 100% 45%, 100% 0%); width: 27px; height: 80px; top: 237px; left: 452px;" data-img="img/Control Room Hallway.jpg" data-En="Control Room Hallway" data-Ko="통제실 복도"></button>
+      <button class="1f location interior transparent" style="clip-path: polygon(0% 0%, 0% 100%, 80% 100%, 80% 58%, 100% 58%, 100% 0%); width: 68px; height: 46px; top: 271px; left: 470px;" data-img="img/Control Room.jpg" data-En="Control Room" data-Ko="통제실"></button>
+      <button class="1f location interior transparent" style="width: 73px; height: 44px; top: 315px; left: 452px;" data-img="img/Warehouse1.jpg" data-En="Warehouse 1f" data-Ko="물류 창고 1층"></button>
+      <button class="1f location custom  transparent" style="clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 100% 40%, 50% 40%, 50% 0%); width: 22px; height: 33px; top: 326px; left: 452px;" data-img="img/Warehouse Stairs.jpg" data-En="Warehouse Stairs" data-Ko="물류 창고 계단"></button>
+      <button class="1f location interior transparent" style="width: 36px; height: 22px; top: 357px; left: 452px;" data-img="img/Warehouse Entrance.jpg" data-En="Warehouse Entrance" data-Ko="물류 창고 출입구"></button>
+      <button class="1f location custom transparent" style="width: 14px; height: 34px; top: 260px; left: 440px;" data-img="img/Warehouse West Stairs.jpg" data-En="Warehouse West Stairs" data-Ko="물류 창고 서쪽 계단"></button>
+
+      <button class="2f location interior transparent" style="width: 70px; height: 31px; top: 165px; left: 578px;" data-img="img/Lobby Stairs2.jpg" data-En="Lobby Stairs" data-Ko="로비 계단"></button>
+      <button class="2f location interior transparent" style="width: 18px; height: 59px; top: 194px; left: 595px;" data-img="img/Meeting Room Hallway.jpg" data-En="Meeting Room Hallway" data-Ko="회의실 복도"></button>
+      <button class="2f location interior transparent" style="width: 37px; height: 59px; top: 194px; left: 611px;" data-img="img/Meeting Room.jpg" data-En="Meeting Room" data-Ko="회의실"></button>
+      <button class="2f location interior transparent" style="clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 100% 36%, 64% 36%, 64% 0%); width: 50px; height: 50px; top: 234px; left: 564px;" data-img="img/Connector.jpg" data-En="Connector" data-Ko="연결 통로"></button>
+      <button class="2f location interior transparent" style="width: 38px; height: 37px; top: 282px; left: 576px;" data-img="img/Electrical.jpg" data-En="Electrical" data-Ko="전기실"></button>
+      <button class="2f location interior transparent" style="clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 100% 48%, 74% 48%, 74% 0%); width: 53px; height: 68px; top: 251px; left: 525px;" data-img="img/Servers.jpg" data-En="Servers" data-Ko="서버실"></button>
+      <button class="2f location interior transparent" style="width: 55px; height: 32px; top: 317px; left: 525px;" data-img="img/IT.jpg" data-En="IT" data-Ko="IT"></button>
+      <button class="2f location interior transparent" style="clip-path: polygon(0% 50%, 0% 100%, 100% 100%, 100% 0%, 36% 0%, 36% 50%); width: 55px; height: 72px; top: 247px; left: 472px;" data-img="img/Command Center.jpg" data-En="Command Center" data-Ko="지휘본부"></button>
+      <button class="2f location interior transparent" style="width: 20px; height: 36px; top: 247px; left: 472px;" data-img="img/CC Hallway.jpg" data-En="CC Hallway" data-Ko="지휘본부 복도"></button>
+      <button class="2f location interior transparent" style="clip-path: polygon(0% 0%, 0% 100%, 44% 100%, 50% 58%, 100% 58%, 100% 0%); width: 89px; height: 29px; top: 220px; left: 450px;" data-img="img/CC Stairs2.jpg" data-En="CC Stairs" data-Ko="지휘본부 계단"></button>
+      <button class="2f location interior transparent" style="clip-path: polygon(0% 0%, 0% 24%, 80% 24%, 80% 100%, 100% 100%, 100% 0%); width: 77px; height: 45px; top: 317px; left: 450px;" data-img="img/Warehouse2.jpg" data-En="Warehouse" data-Ko="물류 창고 2층"></button>
+      <button class="2f location custom transparent" style="clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 100% 44%, 60% 44%, 60% 0%); width: 22px; height: 33px; top: 326px; left: 450px;" data-img="img/Warehouse Stairs.jpg" data-En="Warehouse Stairs" data-Ko="물류 창고 계단"></button>
+      <button class="2f location custom transparent" style="width: 14px; height: 44px; top: 260px; left: 440px;" data-img="img/Warehouse West Stairs.jpg" data-En="Warehouse West Stairs" data-Ko="물류 창고 서쪽 계단"></button>
+      <button class="2f location exterior transparent" style="width: 22px; height: 72px; top: 247px; left: 452px;" data-img="img/CC Balcony.jpg" data-En="CC Balcony" data-Ko="지휘본부 발코니"></button>
+      <button class="2f location exterior transparent" style="width: 55px; height: 15px; top: 347px; left: 525px;" data-img="img/Warehouse Balcony.jpg" data-En="Warehouse Balcony" data-Ko="물류 창고 발코니"></button>
+      <button class="2f location exterior transparent" style="clip-path: polygon(0% 0%, 0% 100%, 30% 100%, 30% 50%, 50% 40%, 100% 40%, 100% 0%); width: 36px; height: 45px; top: 317px; left: 578px;" data-img="img/IT Terrace.jpg" data-En="IT Terrace" data-Ko="IT 테라스"></button>
+      <button class="2f location custom transparent" style="width: 20px; height: 11px; top: 324px; left: 613px;" data-img="img/IT Stairs.jpg" data-En="IT Stairs" data-Ko="IT 계단"></button>
+      <button class="2f location exterior transparent" style="width: 37px; height: 74px; top: 251px; left: 611px;" data-img="img/Electrical Side.jpg" data-En="Electrical Side" data-Ko="전기실 측면 구역"></button>
+      <button class="2f location exterior transparent" style="width: 30px; height: 92px; top: 198px; left: 646px;" data-img="img/Meeting Terrace.jpg" data-En="Meeting Terrace" data-Ko="회의실 테라스"></button>
+      <button class="2f location custom transparent" style="width: 14px; height: 34px; top: 148px; left: 496px;" data-img="img/Park Stairs.jpg" data-En="Park Stairs" data-Ko="공원 계단"></button>
+      <button class="2f location exterior transparent" style="clip-path: polygon(0% 0%, 0% 100%, 52% 100%, 52% 70%, 100% 70%, 100% 40%, 52% 40%, 52% 0%); width: 40px; height: 64px; top: 138px; left: 508px;" data-img="img/Observatory.jpg" data-En="Observatory" data-Ko="전망대"></button>
+      <button class="2f location exterior transparent" style="clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 100% 44%, 66% 44%, 66% 0%); width: 50px; height: 70px; top: 165px; left: 546px;" data-img="img/Connector Terrace.jpg" data-En="Connector Terrace" data-Ko="연결 통로 테라스"></button>
+    </div>
+
+    <div class="objective_location">
+      <div class="b1 objective-bomb S-b1" style="clip-path: polygon(12% 0%, 12% 16%, 0% 16%, 0% 60%, 36% 60%, 36% 70%, 50% 70%, 50% 100%, 100% 100%, 100% 42%, 82% 42%, 82% 54%, 66% 54%, 66% 42%, 48% 42%, 48% 0%); width: 98px; height: 83px; top: 275px; left: 471px;"></div>
+      <img class="b1 objective-bomb S-b1" src="../Asite.png" alt="A Site" style="top: 296px; left: 470px;">
+      <img class="b1 objective-bomb S-b1" src="../Bsite.png" alt="B Site" style="top: 320px; left: 558px;">
+      <div class="1f objective-bomb S-1fW" style="clip-path: polygon(0% 0%, 0% 51%, 52% 51%, 52% 100%, 100% 100%, 100% 62%, 85% 62%, 85% 30%, 64% 30%, 64% 0%); width: 98px; height: 83px; top: 272px; left: 470px;"></div>
+      <img class="1f objective-bomb S-1fW" src="../Asite.png" alt="A Site" style="top: 300px; left: 472px;">
+      <img class="1f objective-bomb S-1fW" src="../Bsite.png" alt="B Site" style="top: 334px; left: 520px;">
+      <div class="1f objective-bomb S-1fE" style="width: 82px; height: 70px; top: 200px; left: 588px;"></div>
+      <img class="1f objective-bomb S-1fE" src="../Asite.png" alt="A Site" style="top: 242px; left: 650px;">
+      <img class="1f objective-bomb S-1fE" src="../Bsite.png" alt="B Site" style="top: 196px; left: 630px;">
+      <div class="2f objective-bomb S-2f" style="clip-path: polygon(18% 0%, 18% 49%, 0% 49%, 0% 100%, 100% 100%, 100% 50%, 88% 50%, 88% 6%, 50% 6%, 50% 0%); width: 103px; height: 68px; top: 248px; left: 472px;"></div>
+      <img class="2f objective-bomb S-2f" src="../Asite.png" alt="A Site" style="top: 256px; left: 514px;">
+      <img class="2f objective-bomb S-2f" src="../Bsite.png" alt="B Site" style="top: 280px; left: 564px;">
+
+      <img class="b1 objective-hostage" src="../objective.png" alt="Hostage" style="top: 296px; left: 554px;">
+      <img class="1f objective-hostage" src="../objective.png" alt="Hostage" style="top: 270px; left: 514px;">
+      <img class="1f objective-hostage" src="../objective.png" alt="Hostage" style="top: 272px; left: 536px;">
+      <img class="2f objective-hostage" src="../objective.png" alt="Hostage" style="top: 264px; left: 536px;">
+
+      <div class="b1 objective-secure" style="clip-path: polygon(25% 0%, 25% 24%, 0% 24%, 0% 84%, 74% 84%, 74% 100%, 100% 100%, 100% 0%); width: 46px; height: 59px; top: 275px; left: 471px;"></div>
+      <img class="b1 objective-secure" src="../objective.png" alt="Biohazard Container" style="top: 284px; left: 470px;">
+      <div class="1f objective-secure" style="clip-path: polygon(0% 0%, 0% 100%, 82% 100%, 82% 56%, 100% 56%, 100% 0%); width: 62px; height: 41px; top: 272px; left: 470px;"></div>
+      <img class="1f objective-secure" src="../objective.png" alt="Biohazard Container" style="top: 300px; left: 486px;">
+      <div class="1f objective-secure" style="clip-path: polygon(0% 0%, 0% 100%, 55% 100%, 55% 38%, 100% 38%, 100% 0%); width: 81px; height: 69px; top: 200px; left: 588px;"></div>
+      <img class="1f objective-secure" src="../objective.png" alt="Biohazard Container" style="top: 212px; left: 626px;">
+      <div class="2f objective-secure" style="clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 100% 46%, 74% 46%, 74% 0%); width: 50px; height: 63px; top: 252px; left: 525px;"></div>
+      <img class="2f objective-secure" src="../objective.png" alt="Biohazard Container" style="top: 300px; left: 540px;">
+    </div>
+    
+    <div class="setup">
+      <!--
+        <div class="b1/1f/2f S-b1/S-1fW/S-1fE/S-2f reinforcement/rotation/angle/barricade" style="width: 20px; height: 10px; top: 100px; left: 100px;"></div>
+        <span class="b1/1f/2f S-b1/S-1fW/S-1fE/S-2f rotation/angle" style="top: 100px; left: 100px;">C S V F K H O</span>
+      -->
+      <div class="b1 S-b1 reinforcement" style="width: 3px; height: 6px; top: 276px; left: 569px;"></div>
+      <div class="b1 S-b1 reinforcement" style="width: 7px; height: 3px; top: 310px; left: 527px;"></div>
+      <div class="b1 S-b1 reinforcement" style="width: 7px; height: 3px; top: 320px; left: 536px;"></div>
+      <div class="b1 S-b1 reinforcement" style="width: 12px; height: 4px; top: 359px; left: 496px;"></div>
+      <div class="b1 S-b1 reinforcement" style="width: 9px; height: 4px; top: 359px; left: 536px;"></div>
+      <div class="b1 S-b1 reinforcement" style="width: 9px; height: 4px; top: 359px; left: 545px;"></div>
+      <div class="1f S-b1 reinforcement" style="width: 10px; height: 10px; top: 249px; left: 486px;"></div>
+      <div class="1f S-b1 reinforcement" style="width: 10px; height: 10px; top: 330px; left: 492px;"></div>
+      <div class="1f S-b1 reinforcement" style="width: 10px; height: 10px; top: 288px; left: 584px;"></div>
+      <div class="b1 S-b1 angle" style="width: 3px; height: 15px; top: 254px; left: 530px;"></div>
+      <span class="b1 S-b1 angle" style="top: 254px; left: 528px;">F</span>
+      <div class="b1 S-b1 angle" style="width: 15px; height: 3px; top: 275px; left: 504px;"></div>
+      <span class="b1 S-b1 angle" style="top: 268px; left: 509px;">F</span>
+      <div class="b1 S-b1 angle" style="width: 10px; height: 3px; top: 336px; left: 510px;"></div>
+      <span class="b1 S-b1 angle" style="top: 329px; left: 511px;">F</span>
+      <div class="b1 S-b1 angle" style="width: 6px; height: 5px; top: 310px; left: 522px;"></div>
+      <span class="b1 S-b1 angle" style="top: 304px; left: 521px;">H</span>
+      <div class="b1 S-b1 angle" style="width: 4px; height: 6px; top: 271px; left: 569px;"></div>
+      <span class="b1 S-b1 angle" style="top: 265px; left: 568px;">H</span>
+      <div class="b1 S-b1 rotation" style="width: 8px; height: 5px; top: 320px; left: 544px;"></div>
+      <span class="b1 S-b1 rotation" style="top: 314px; left: 544px;">V</span>
+      
+      <div class="1f S-1fE reinforcement" style="width: 7px; height: 4px; top: 198px; left: 610px;"></div>
+      <div class="1f S-1fE reinforcement" style="width: 7px; height: 4px; top: 198px; left: 617px;"></div>
+      <div class="1f S-1fE reinforcement" style="width: 6px; height: 4px; top: 224px; left: 646px;"></div>
+      <div class="1f S-1fE reinforcement" style="width: 3px; height: 8px; top: 254px; left: 587px;"></div>
+      <div class="1f S-1fE reinforcement" style="width: 3px; height: 8px; top: 262px; left: 587px;"></div>
+      <div class="2f S-1fE reinforcement" style="width: 8px; height: 4px; top: 194px; left: 637px;"></div>
+      <div class="2f S-1fE reinforcement" style="width: 8px; height: 4px; top: 232px; left: 572px;"></div>
+      <div class="2f S-1fE reinforcement" style="width: 8px; height: 4px; top: 232px; left: 580px;"></div>
+      <div class="2f S-1fE reinforcement" style="width: 10px; height: 10px; top: 276px; left: 639px;"></div>
+      <div class="1f S-1fE angle" style="width: 14px; height: 4px; top: 236px; left: 592px;"></div>
+      <span class="1f S-1fE angle" style="top: 230px; left: 595px;">O</span>
+      <div class="1f S-1fE angle" style="width: 4px; height: 14px; top: 274px; left: 635px;"></div>
+      <span class="1f S-1fE angle" style="top: 273px; left: 634px;">F</span>
+      <div class="1f S-1fE rotation" style="width: 6px; height: 5px; top: 224px; left: 640px;"></div>
+      <span class="1f S-1fE rotation" style="top: 219px; left: 639px;">V</span>
+
+      <div class="2f S-2f reinforcement" style="width: 8px; height: 4px; top: 232px; left: 572px;"></div>
+      <div class="2f S-2f reinforcement" style="width: 8px; height: 4px; top: 232px; left: 580px;"></div>
+      <div class="2f S-2f reinforcement" style="width: 4px; height: 8px; top: 258px; left: 562px;"></div>
+      <div class="2f S-2f reinforcement" style="width: 4px; height: 8px; top: 266px; left: 562px;"></div>
+      <div class="2f S-2f reinforcement" style="width: 3px; height: 7px; top: 266px; left: 490px;"></div>
+      <div class="2f S-2f reinforcement" style="width: 5px; height: 4px; top: 316px; left: 508px;"></div>
+      <div class="2f S-2f reinforcement" style="width: 5px; height: 4px; top: 316px; left: 513px;"></div>
+      <div class="2f S-2f reinforcement" style="width: 4px; height: 8px; top: 324px; left: 576px;"></div>
+      <div class="2f S-2f reinforcement" style="width: 4px; height: 8px; top: 332px; left: 576px;"></div>
+      <div class="2f S-2f angle" style="width: 4px; height: 8px; top: 306px; left: 524px;"></div>
+      <span class="2f S-2f angle" style="top: 302px; left: 523px;">O</span>
+      <div class="2f S-2f angle" style="width: 5px; height: 7px; top: 274px; left: 490px;"></div>
+      <span class="2f S-2f angle" style="top: 269px; left: 489px;">F</span>
+      <div class="2f S-2f rotation" style="width: 6px; height: 5px; top: 316px; left: 519px;"></div>
+      <span class="2f S-2f rotation" style="top: 310px; left: 519px;">V</span>
+
+      <span id="unavailable" style="width: 480px; height: 75px; top: 120px; left: 240px; font-size: 30px; background-color: lightpink; display: none;">Sorry! We do not provide setup for this site.<br>This site is not recommended.</span>
+    </div>
+
+    <div id="location_box" style="display: none;">
+      <button id="box_close">X</button>
+      <img id="box_img" src="nighthaven_labs_thumbnail.jpg" alt="Default Image">
+      <p id="box_text_En">Default Text</p>
+      <p id="box_text_Ko">기본 텍스트</p>
+    </div>
+  </div>
+
+  <script src="nighthaven_labs.js"></script>
+</body>
