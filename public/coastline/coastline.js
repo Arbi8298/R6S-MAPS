@@ -37,6 +37,10 @@ window.onload = function() {
     var f_2f = false;
     var f_roof = false;
 
+    const btn_show_all = document.getElementById("show_all_toggle");
+    const location = document.getElementsByClassName("location");
+    var show_all = false;
+
     var btn_gm_none = document.getElementById("gm_none");
     var btn_gm_bomb = document.getElementById("gm_bomb");
     var btn_gm_hostage = document.getElementById("gm_hostage");
@@ -66,6 +70,8 @@ window.onload = function() {
     document.getElementById("f_1f").addEventListener("click", fn_f_1f);
     document.getElementById("f_2f").addEventListener("click", fn_f_2f);
     document.getElementById("f_roof").addEventListener("click", fn_f_roof);
+    
+    document.getElementById("show_all_toggle").addEventListener("click", fn_show_all);
 
     document.getElementById("home_button").addEventListener("click", remove);
     update();
@@ -107,6 +113,23 @@ window.onload = function() {
             }
         });
     });
+
+    function fn_show_all(){
+        if (show_all){
+            show_all = false;
+            btn_show_all.textContent = "Show All Location";
+            for (var i = 0; i < location.length; i++) {
+                location[i].classList.add('transparent');
+            }
+        }
+        else{
+            show_all = true;
+            btn_show_all.textContent = "Hide All Location";
+            for (var i = 0; i < location.length; i++) {
+                location[i].classList.remove('transparent');
+            }
+        }
+    }
 
     function remove(){
         document.getElementById("gm_none").removeEventListener("click", fn_gm_none);

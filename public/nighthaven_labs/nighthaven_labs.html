@@ -33,6 +33,9 @@
       <button class="floor" id="f_2f">2f</button>
       <button class="floor" id="f_roof">roof</button>
     </div>
+    <div id="show_all_toggle_container">
+      <button id="show_all_toggle">Show All Location</button>
+    </div>
   </div>
   <div id="map_container">
     <div class="map">
@@ -44,6 +47,35 @@
       <img class="setup_guide" src="setup_guide.png" alt="Setup Guide" style="position: absolute; width: 216px; height: 90px; bottom: 100px; right: 22px; width: 216px; height: 90px; opacity: 100%; margin: 0px; display: none;">
     </div>
 
+    <div class="objective_location">
+      <div class="b1 objective-bomb S-b1" style="clip-path: polygon(12% 0%, 12% 16%, 0% 16%, 0% 60%, 36% 60%, 36% 70%, 50% 70%, 50% 100%, 100% 100%, 100% 42%, 82% 42%, 82% 54%, 66% 54%, 66% 42%, 48% 42%, 48% 0%); width: 98px; height: 83px; top: 275px; left: 471px; display: none;"></div>
+      <img class="b1 objective-bomb S-b1" src="../Asite.png" alt="A Site" style="top: 296px; left: 470px; display: none;">
+      <img class="b1 objective-bomb S-b1" src="../Bsite.png" alt="B Site" style="top: 320px; left: 558px; display: none;">
+      <div class="1f objective-bomb S-1fW" style="clip-path: polygon(0% 0%, 0% 51%, 52% 51%, 52% 100%, 100% 100%, 100% 62%, 85% 62%, 85% 30%, 64% 30%, 64% 0%); width: 98px; height: 83px; top: 272px; left: 470px; display: none;"></div>
+      <img class="1f objective-bomb S-1fW" src="../Asite.png" alt="A Site" style="top: 300px; left: 472px; display: none;">
+      <img class="1f objective-bomb S-1fW" src="../Bsite.png" alt="B Site" style="top: 334px; left: 520px; display: none;">
+      <div class="1f objective-bomb S-1fE" style="width: 82px; height: 70px; top: 200px; left: 588px; display: none;"></div>
+      <img class="1f objective-bomb S-1fE" src="../Asite.png" alt="A Site" style="top: 242px; left: 650px; display: none;">
+      <img class="1f objective-bomb S-1fE" src="../Bsite.png" alt="B Site" style="top: 196px; left: 630px; display: none;">
+      <div class="2f objective-bomb S-2f" style="clip-path: polygon(18% 0%, 18% 49%, 0% 49%, 0% 100%, 100% 100%, 100% 50%, 88% 50%, 88% 6%, 50% 6%, 50% 0%); width: 103px; height: 68px; top: 248px; left: 472px; display: none;"></div>
+      <img class="2f objective-bomb S-2f" src="../Asite.png" alt="A Site" style="top: 256px; left: 514px; display: none;">
+      <img class="2f objective-bomb S-2f" src="../Bsite.png" alt="B Site" style="top: 280px; left: 564px; display: none;">
+
+      <img class="b1 objective-hostage" src="../objective.png" alt="Hostage" style="top: 296px; left: 554px; display: none;">
+      <img class="1f objective-hostage" src="../objective.png" alt="Hostage" style="top: 270px; left: 514px; display: none;">
+      <img class="1f objective-hostage" src="../objective.png" alt="Hostage" style="top: 272px; left: 536px; display: none;">
+      <img class="2f objective-hostage" src="../objective.png" alt="Hostage" style="top: 264px; left: 536px; display: none;">
+
+      <div class="b1 objective-secure" style="clip-path: polygon(25% 0%, 25% 24%, 0% 24%, 0% 84%, 74% 84%, 74% 100%, 100% 100%, 100% 0%); width: 46px; height: 59px; top: 275px; left: 471px; display: none;"></div>
+      <img class="b1 objective-secure" src="../objective.png" alt="Biohazard Container" style="top: 284px; left: 470px; display: none;">
+      <div class="1f objective-secure" style="clip-path: polygon(0% 0%, 0% 100%, 82% 100%, 82% 56%, 100% 56%, 100% 0%); width: 62px; height: 41px; top: 272px; left: 470px; display: none;"></div>
+      <img class="1f objective-secure" src="../objective.png" alt="Biohazard Container" style="top: 300px; left: 486px; display: none;">
+      <div class="1f objective-secure" style="clip-path: polygon(0% 0%, 0% 100%, 55% 100%, 55% 38%, 100% 38%, 100% 0%); width: 81px; height: 69px; top: 200px; left: 588px; display: none;"></div>
+      <img class="1f objective-secure" src="../objective.png" alt="Biohazard Container" style="top: 212px; left: 626px; display: none;">
+      <div class="2f objective-secure" style="clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 100% 46%, 74% 46%, 74% 0%); width: 50px; height: 63px; top: 252px; left: 525px; display: none;"></div>
+      <img class="2f objective-secure" src="../objective.png" alt="Biohazard Container" style="top: 300px; left: 540px; display: none;">
+    </div>
+    
     <div class="location_name">
       <!--
         <button class="b1/1f/2f location interior/exterior/custom" style="width: 20px; height: 20px; top: 100px; left: 200px;" data-img="img/.jpg" data-En="" data-Ko=""></button>
@@ -108,35 +140,6 @@
       <button class="2f location exterior transparent" style="clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 100% 44%, 66% 44%, 66% 0%); width: 50px; height: 70px; top: 165px; left: 546px;" data-img="img/Connector Terrace.jpg" data-En="Connector Terrace" data-Ko="연결 통로 테라스" title="Connector Terrace"></button>
     </div>
 
-    <div class="objective_location">
-      <div class="b1 objective-bomb S-b1" style="clip-path: polygon(12% 0%, 12% 16%, 0% 16%, 0% 60%, 36% 60%, 36% 70%, 50% 70%, 50% 100%, 100% 100%, 100% 42%, 82% 42%, 82% 54%, 66% 54%, 66% 42%, 48% 42%, 48% 0%); width: 98px; height: 83px; top: 275px; left: 471px; display: none;"></div>
-      <img class="b1 objective-bomb S-b1" src="../Asite.png" alt="A Site" style="top: 296px; left: 470px; display: none;">
-      <img class="b1 objective-bomb S-b1" src="../Bsite.png" alt="B Site" style="top: 320px; left: 558px; display: none;">
-      <div class="1f objective-bomb S-1fW" style="clip-path: polygon(0% 0%, 0% 51%, 52% 51%, 52% 100%, 100% 100%, 100% 62%, 85% 62%, 85% 30%, 64% 30%, 64% 0%); width: 98px; height: 83px; top: 272px; left: 470px; display: none;"></div>
-      <img class="1f objective-bomb S-1fW" src="../Asite.png" alt="A Site" style="top: 300px; left: 472px; display: none;">
-      <img class="1f objective-bomb S-1fW" src="../Bsite.png" alt="B Site" style="top: 334px; left: 520px; display: none;">
-      <div class="1f objective-bomb S-1fE" style="width: 82px; height: 70px; top: 200px; left: 588px; display: none;"></div>
-      <img class="1f objective-bomb S-1fE" src="../Asite.png" alt="A Site" style="top: 242px; left: 650px; display: none;">
-      <img class="1f objective-bomb S-1fE" src="../Bsite.png" alt="B Site" style="top: 196px; left: 630px; display: none;">
-      <div class="2f objective-bomb S-2f" style="clip-path: polygon(18% 0%, 18% 49%, 0% 49%, 0% 100%, 100% 100%, 100% 50%, 88% 50%, 88% 6%, 50% 6%, 50% 0%); width: 103px; height: 68px; top: 248px; left: 472px; display: none;"></div>
-      <img class="2f objective-bomb S-2f" src="../Asite.png" alt="A Site" style="top: 256px; left: 514px; display: none;">
-      <img class="2f objective-bomb S-2f" src="../Bsite.png" alt="B Site" style="top: 280px; left: 564px; display: none;">
-
-      <img class="b1 objective-hostage" src="../objective.png" alt="Hostage" style="top: 296px; left: 554px; display: none;">
-      <img class="1f objective-hostage" src="../objective.png" alt="Hostage" style="top: 270px; left: 514px; display: none;">
-      <img class="1f objective-hostage" src="../objective.png" alt="Hostage" style="top: 272px; left: 536px; display: none;">
-      <img class="2f objective-hostage" src="../objective.png" alt="Hostage" style="top: 264px; left: 536px; display: none;">
-
-      <div class="b1 objective-secure" style="clip-path: polygon(25% 0%, 25% 24%, 0% 24%, 0% 84%, 74% 84%, 74% 100%, 100% 100%, 100% 0%); width: 46px; height: 59px; top: 275px; left: 471px; display: none;"></div>
-      <img class="b1 objective-secure" src="../objective.png" alt="Biohazard Container" style="top: 284px; left: 470px; display: none;">
-      <div class="1f objective-secure" style="clip-path: polygon(0% 0%, 0% 100%, 82% 100%, 82% 56%, 100% 56%, 100% 0%); width: 62px; height: 41px; top: 272px; left: 470px; display: none;"></div>
-      <img class="1f objective-secure" src="../objective.png" alt="Biohazard Container" style="top: 300px; left: 486px; display: none;">
-      <div class="1f objective-secure" style="clip-path: polygon(0% 0%, 0% 100%, 55% 100%, 55% 38%, 100% 38%, 100% 0%); width: 81px; height: 69px; top: 200px; left: 588px; display: none;"></div>
-      <img class="1f objective-secure" src="../objective.png" alt="Biohazard Container" style="top: 212px; left: 626px; display: none;">
-      <div class="2f objective-secure" style="clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 100% 46%, 74% 46%, 74% 0%); width: 50px; height: 63px; top: 252px; left: 525px; display: none;"></div>
-      <img class="2f objective-secure" src="../objective.png" alt="Biohazard Container" style="top: 300px; left: 540px; display: none;">
-    </div>
-    
     <div class="setup">
       <!--
         <div class="b1/1f/2f S-b1/S-1fW/S-1fE/S-2f reinforcement/rotation/angle/barricade" style="width: 20px; height: 10px; top: 100px; left: 100px;"></div>

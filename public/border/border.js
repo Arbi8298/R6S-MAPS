@@ -12,12 +12,18 @@ window.onload = function() {
     const S_1fS = document.getElementsByClassName("S-1fS");
     const S_2f = document.getElementsByClassName("S-2f");
 
+    const btn_show_all = document.getElementById("show_all_toggle");
+    const location = document.getElementsByClassName("location");
+    var show_all = false;
+
     const location_box = document.getElementById("location_box");
     const location_bundle = document.querySelectorAll(".location");
     const location_img = document.getElementById("box_img");
     const location_En = document.getElementById("box_text_En");
     const location_Ko = document.getElementById("box_text_Ko");
     const setup_guide = document.getElementsByClassName("setup_guide");
+    
+    document.getElementById("show_all_toggle").addEventListener("click", fn_show_all);
 
     const unavailable = document.getElementById("unavailable");
     let timeoutId;
@@ -107,6 +113,23 @@ window.onload = function() {
             }
         });
     });
+
+    function fn_show_all(){
+        if (show_all){
+            show_all = false;
+            btn_show_all.textContent = "Show All Location";
+            for (var i = 0; i < location.length; i++) {
+                location[i].classList.add('transparent');
+            }
+        }
+        else{
+            show_all = true;
+            btn_show_all.textContent = "Hide All Location";
+            for (var i = 0; i < location.length; i++) {
+                location[i].classList.remove('transparent');
+            }
+        }
+    }
 
     function remove(){
         document.getElementById("gm_none").removeEventListener("click", fn_gm_none);

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>R6S MAPS</title>
+  <link rel="stylesheet" type="text/css" href="kafe_dostoyevsky.css">
+</head>
+
+<body>
+  <div id="head_container">
+    <button id="home_button" onclick="window.location.href='../index.html'">R6S MAPS</button>
+  </div>
+  <div id="button_container">
+    <div id="game_mode_container">
+      <span class="game_mode text">Objective</span>
+      <button class="game_mode" id="gm_none">none</button>
+      <button class="game_mode" id="gm_bomb">bomb</button>
+      <button class="game_mode" id="gm_hostage">hostage</button>
+      <button class="game_mode" id="gm_secure">secure area</button>
+    </div>
+    <div id="basic_setting_container">
+      <span class="basic_setting text">Setup</span>
+      <button class="basic_setting" id="bs_none">none</button>
+      <button class="basic_setting" id="bs_1f">1f</button>
+      <button class="basic_setting" id="bs_2fW">2f West</button>
+      <button class="basic_setting" id="bs_2fE">2f East</button>
+      <button class="basic_setting" id="bs_3f">3f</button>
+    </div>
+    <div id="floor_container">
+      <span class="floor text">Floor</span>
+      <button class="floor" id="f_1f">1f</button>
+      <button class="floor" id="f_2f">2f</button>
+      <button class="floor" id="f_3f">3f</button>
+      <button class="floor" id="f_roof">roof</button>
+    </div>
+    <div id="show_all_toggle_container">
+      <button id="show_all_toggle">Show All Location</button>
+    </div>
+  </div>
+  <div id="map_container">
+    <div class="map">
+      <img class="1f" src="kafe_dostoyevsky_1f.jpg" alt="Kafe Dostoyevsky 1f">
+      <img class="2f" src="kafe_dostoyevsky_2f.jpg" alt="Kafe Dostoyevsky 2f" style="display: none;">
+      <img class="3f" src="kafe_dostoyevsky_3f.jpg" alt="Kafe Dostoyevsky 3f" style="display: none;">
+      <img class="roof" src="kafe_dostoyevsky_roof.jpg" alt="Kafe Dostoyevsky roof" style="display: none;">
+      <div class="setup_guide" style="position: absolute; width: 216px; height: 90px; bottom: 130px; right: 23px; opacity: 60%; background-color: black; display: none;"></div>
+      <img class="setup_guide" src="setup_guide.png" alt="Setup Guide" style="position: absolute; width: 216px; height: 90px; bottom: 130px; right: 23px; width: 216px; height: 90px; opacity: 100%; margin: 0px; display: none;">
+    </div>
+
+    <div class="objective_location">
+      <div class="1f objective-bomb S-1f" style="clip-path: polygon(0% 0%, 0% 68%, 23% 68%, 23% 100%, 72% 100%, 72% 55%, 100% 55%, 100% 13%, 46% 13%, 46% 0%); width: 147px; height: 106px; top: 265px; left: 408px; display: none;"></div>
+      <img class="1f objective-bomb S-1f" src="../Asite.png" alt="A Site" style="top: 324px; left: 430px; display: none;">
+      <img class="1f objective-bomb S-1f" src="../Bsite.png" alt="B Site" style="top: 310px; left: 512px; display: none;">
+      <div class="2f objective-bomb S-2fW" style="clip-path: polygon(0% 0%, 0% 40%, 52% 40%, 52% 61%, 100% 61%, 100% 100%, 52% 100%, 52% 0%); width: 151px; height: 122px; top: 253px; left: 412px; display: none;"></div>
+      <img class="2f objective-bomb S-2fW" src="../Asite.png" alt="A Site" style="top: 342px; left: 530px; display: none;">
+      <img class="2f objective-bomb S-2fW" src="../Bsite.png" alt="B Site" style="top: 266px; left: 460px; display: none;">
+      <div class="2f objective-bomb S-2fE" style="clip-path: polygon(63% 0%, 63% 21%, 18% 21%, 18% 53%, 0% 67%, 0% 100%, 54% 100%, 54% 67%, 0% 67%, 18% 53%, 100% 53%, 100% 0%); width: 134px; height: 144px; top: 231px; left: 492px; display: none;"></div>
+      <img class="2f objective-bomb S-2fE" src="../Asite.png" alt="A Site" style="top: 342px; left: 530px; display: none;">
+      <img class="2f objective-bomb S-2fE" src="../Bsite.png" alt="B Site" style="top: 256px; left: 560px; display: none;">
+      <div class="3f objective-bomb S-3f" style="clip-path: polygon(0% 0%, 0% 58%, 29% 58%, 29% 50%, 46% 50%, 46% 58%, 72% 58%, 72% 100%, 100% 100%, 100% 0%); width: 138px; height: 112px; top: 230px; left: 497px; display: none;"></div>
+      <img class="3f objective-bomb S-3f" src="../Asite.png" alt="A Site" style="top: 256px; left: 620px; display: none;">
+      <img class="3f objective-bomb S-3f" src="../Bsite.png" alt="B Site" style="top: 226px; left: 538px; display: none;">
+
+      <img class="1f objective-hostage" src="../objective.png" alt="Hostage" style="top: 332px; left: 444px; display: none;">
+      <img class="2f objective-hostage" src="../objective.png" alt="Hostage" style="top: 322px; left: 460px; display: none;">
+      <img class="2f objective-hostage" src="../objective.png" alt="Hostage" style="top: 276px; left: 596px; display: none;">
+      <img class="3f objective-hostage" src="../objective.png" alt="Hostage" style="top: 334px; left: 556px; display: none;">
+
+      <div class="1f objective-secure" style="clip-path: polygon(0% 0%, 0% 68%, 50% 68%, 50% 100%, 100% 100%, 100% 0%); width: 67px; height: 106px; top: 265px; left: 408px; display: none;"></div>
+      <img class="1f objective-secure" src="../objective.png" alt="Biohazard Container" style="top: 330px; left: 438px; display: none;">
+      <div class="2f objective-secure" style="width: 77px; height: 74px; top: 301px; left: 412px; display: none;"></div>
+      <img class="2f objective-secure" src="../objective.png" alt="Biohazard Container" style="top: 312px; left: 410px; display: none;">
+      <div class="2f objective-secure" style="clip-path: polygon(56% 0%, 56% 38%, 0% 38%, 0% 100%, 100% 100%, 100% 0%); width: 111px; height: 75px; top: 231px; left: 515px; display: none;"></div>
+      <img class="2f objective-secure" src="../objective.png" alt="Biohazard Container" style="top: 262px; left: 576px; display: none;">
+      <div class="3f objective-secure" style="clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 100% 29%, 34% 29%, 34% 0%); width: 103px; height: 115px; top: 262px; left: 416px; display: none;"></div>
+      <img class="3f objective-secure" src="../objective.png" alt="Biohazard Container" style="top: 288px; left: 414px; display: none;">
+    </div>
+    
+    <div class="location_name">
+      <!--
+        <button class="1f/2f/3f location interior/exterior/custom " style="width: 20px; height: 20px; top: 100px; left: 200px;" data-img="img/.jpg" data-En="" data-Ko="" title=""></button>
+      -->
+      <button class="1f location interior transparent" style="width: 62px; height: 41px; top: 221px; left: 347px;" data-img="img/Small Bakery.jpg" data-En="Small Bakery" data-Ko="제과 응접실" title="Small Bakery"></button>
+      <button class="1f location interior transparent" style="clip-path: polygon(0% 0%, 0% 100%, 44% 100%, 44% 70%, 100% 70%, 100% 0%); width: 62px; height: 115px; top: 260px; left: 347px;" data-img="img/Bakery.jpg" data-En="Bakery" data-Ko="제과점" title="Bakery"></button>
+      <button class="1f location interior transparent" style="width: 36px; height: 41px; top: 196px; left: 407px;" data-img="img/Red Stairs12.jpg" data-En="Red Stairs" data-Ko="붉은 계단" title="Red Stairs"></button>
+      <button class="1f location interior transparent" style="width: 37px; height: 47px; top: 190px; left: 441px;" data-img="img/Coat Check.jpg" data-En="Coat Check" data-Ko="휴대품 보관실" title="Coat Check"></button>
+      <button class="1f location interior transparent" style="width: 62px; height: 47px; top: 190px; left: 476px;" data-img="img/Reception.jpg" data-En="Reception / Main Door" data-Ko="접수처 / 정문" title="Reception"></button>
+      <button class="1f location interior transparent" style="clip-path: polygon(0% 0%, 0% 66%, 76% 66%, 76% 100%, 100% 100%, 100% 0%); width: 93px; height: 47px; top: 235px; left: 407px;" data-img="img/Bakery Corridor.jpg" data-En="Main Corridor / Bakery Corridor" data-Ko="중앙 통로 / 빨간 복도" title="Bakery Corridor"></button>
+      <button class="1f location interior transparent" style="clip-path: polygon(0% 0%, 0% 69%, 50% 69%, 50% 100%, 100% 100%, 100% 0%); width: 72px; height: 110px; top: 265px; left: 407px;" data-img="img/Kitchen Cooking.jpg" data-En="Kitchen Cooking" data-Ko="주방 조리실" title="Kitchen Cooking"></button>
+      <button class="1f location custom transparent" style="width: 24px; height: 24px; top: 265px; left: 407px;" data-img="img/Fan.jpg" data-En="Fan" data-Ko="선풍기" title="Fan"></button>
+      <button class="1f location custom transparent" style="width: 24px; height: 24px; top: 265px; left: 455px;" data-img="img/Bin.jpg" data-En="Bin" data-Ko="쓰레기통" title="Bin"></button>
+      <button class="1f location interior transparent" style="width: 72px; height: 36px; top: 339px; left: 372px;" data-img="img/Prep Room.jpg" data-En="Prep Room" data-Ko="준비실" title="Prep Room"></button>
+      <button class="1f location custom transparent" style="clip-path: polygon(0% 0%, 0% 70%, 55% 70%, 55% 100%, 100% 100%, 100% 0%); width: 48px; height: 30px; top: 190px; left: 536px;" data-img="img/Lobby Stairs.jpg" data-En="Lobby Stairs" data-Ko="중앙 계단" title="Lobby Stairs"></button>
+      <button class="1f location interior transparent" style="clip-path: polygon(46% 0%, 46% 37%, 0% 37%, 0% 100%, 100% 100%, 100% 13%, 75% 13%, 75% 0%); width: 86px; height: 72px; top: 210px; left: 498px;" data-img="img/Bar1.jpg" data-En="Bar 1f" data-Ko="바 1층" title="Bar 1f"></button>
+      <button class="1f location interior transparent" style="clip-path: polygon(0% 0%, 0% 100%, 49% 100%, 49% 48%, 100% 48%, 100% 0%); width: 82px; height: 95px; top: 280px; left: 477px;" data-img="img/Kitchen Service.jpg" data-En="Kitchen Service" data-Ko="주방 서비스 구역" title="Kitchen Service"></button>
+      <button class="1f location custom transparent" style="width: 59px; height: 30px; top: 280px; left: 500px;" data-img="img/Coffee.jpg" data-En="Coffee" data-Ko="커피" title="Coffee"></button>
+      <button class="1f location interior transparent" style="width: 43px; height: 50px; top: 325px; left: 516px;" data-img="img/Freezer.jpg" data-En="Freezer" data-Ko="냉동실" title="Freezer"></button>
+      <button class="1f location interior transparent" style="width: 38px; height: 76px; top: 190px; left: 582px;" data-img="img/Dining Room.jpg" data-En="Dining Room" data-Ko="식당" title="Dining Room"></button>
+      <button class="1f location interior transparent" style="width: 38px; height: 78px; top: 264px; left: 582px;" data-img="img/VIP Section.jpg" data-En="VIP Section" data-Ko="VIP 전용실" title="VIP Section"></button>
+      <button class="1f location interior transparent" style="clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 100% 78%, 40% 78%, 40% 0%); width: 63px; height: 117px; top: 280px; left: 557px;" data-img="img/VIP Corridor.jpg" data-En="VIP Corridor" data-Ko="VIP 통로" title="VIP Corridor"></button>
+      <button class="1f location interior transparent" style="width: 38px; height: 32px; top: 340px; left: 582px;" data-img="img/White Stairs12.jpg" data-En="White Stairs" data-Ko="흰 계단" title="White Stairs"></button>
+      <button class="1f location custom transparent" style="width: 62px; height: 27px; top: 370px; left: 557px;" data-img="img/Garage.jpg" data-En="Garage" data-Ko="차고" title="Garage"></button>
+
+      <button class="2f location interior transparent" style="width: 35px; height: 40px; top: 192px; left: 412px;" data-img="img/Red Stairs23.jpg" data-En="Red Stairs" data-Ko="붉은 계단" title="Red Stairs"></button>
+      <button class="2f location interior transparent" style="width: 81px; height: 25px; top: 230px; left: 412px;" data-img="img/Museum Entrance.jpg" data-En="Museum Entrance" data-Ko="박물관 입구" title="Museum Entrance"></button>
+      <button class="2f location interior transparent" style="width: 81px; height: 50px; top: 253px; left: 412px;" data-img="img/Mining Room.jpg" data-En="Mining Room" data-Ko="광산 펌프방" title="Mining Room"></button>
+      <button class="2f location interior transparent" style="width: 81px; height: 78px; top: 301px; left: 412px;" data-img="img/Train Museum.jpg" data-En="Train Museum" data-Ko="기차 박물관" title="Train Museum"></button>
+      <button class="2f location interior transparent" style="clip-path: polygon(0% 0%, 0% 62%, 25% 62%, 25% 100%, 73% 100%, 73% 61%, 100% 61%, 100% 0%, 72% 0%, 72% 30%, 49% 30%, 49% 0%); width: 185px; height: 78px; top: 184px; left: 445px;" data-img="img/Pillar Room.jpg" data-En="Pillar Room" data-Ko="기둥 구역" title="Pillar Room"></button>
+      <button class="2f location interior transparent" style="width: 46px; height: 25px; top: 184px; left: 534px;" data-img="img/Lobby Stairs.jpg" data-En="Lobby Stairs" data-Ko="중앙 계단" title="Lobby Stairs"></button>
+      <button class="2f location interior transparent" style="width: 27px; height: 50px; top: 260px; left: 491px;" data-img="img/Main Corridor.jpg" data-En="Main Corridor / Ninety" data-Ko="중앙 통로 / ㄱ자" title="Ninety"></button>
+      <button class="2f location interior transparent" style="clip-path: polygon(56% 0%, 56% 38%, 0% 38%, 0% 100%, 100% 100%, 100% 0%); width: 115px; height: 79px; top: 231px; left: 515px;" data-img="img/Reading Room.jpg" data-En="Reading Room" data-Ko="독서실" title="Reading Room"></button>
+      <button class="2f location interior transparent" style="clip-path: polygon(0% 0%, 0% 31%, 76% 31%, 76% 100%, 100% 100%, 100% 0%); width: 99px; height: 71px; top: 308px; left: 491px;" data-img="img/Reading Room Corridor.jpg" data-En="Reading Room Corridor" data-Ko="독서실 통로" title="Reading Room Corridor"></button>
+      <button class="2f location interior transparent" style="width: 76px; height: 49px; top: 330px; left: 491px;" data-img="img/Fireplace Hall.jpg" data-En="Fireplace Hall" data-Ko="벽난로 홀" title="Fireplace Hall"></button>
+      <button class="2f location interior transparent" style="width: 42px; height: 37px; top: 308px; left: 588px;" data-img="img/Laundry Room.jpg" data-En="Laundry Room" data-Ko="세탁실" title="Laundry Room"></button>
+      <button class="2f location interior transparent" style="width: 42px; height: 36px; top: 343px; left: 588px;" data-img="img/White Stairs23.jpg" data-En="White Stairs" data-Ko="흰 계단" title="White Stairs"></button>
+      <button class="2f location exterior transparent" style="width: 52px; height: 188px; top: 188px; left: 630px;" data-img="img/Terrace.jpg" data-En="Terrace / Snow" data-Ko="테라스 / 눈길" title="Snow"></button>
+      <button class="2f location custom transparent" style="width: 70px; height: 19px; top: 379px; left: 552px;" data-img="img/Garage Roof.jpg" data-En="Garage Roof" data-Ko="차고 지붕" title="Garage Roof"></button>
+      <button class="2f location exterior transparent" style="width: 68px; height: 158px; top: 218px; left: 344px;" data-img="img/Bakery Roof.jpg" data-En="Bakery Roof / Balcony" data-Ko="제과점 지붕 / 발코니" title="Balcony"></button>
+      
+      <button class="3f location interior transparent" style="width: 36px; height: 70px; top: 194px; left: 416px;" data-img="img/Red Stairs23.jpg" data-En="Red Stairs" data-Ko="붉은 계단" title="Red Stairs"></button>
+      <button class="3f location interior transparent" style="width: 60px; height: 46px; top: 186px; left: 450px;" data-img="img/Cigar Balcony.jpg" data-En="Cigar Balcony / New Hatch" data-Ko="시가 발코니" title="New Hatch"></button>
+      <button class="3f location interior transparent" style="width: 49px; height: 68px; top: 230px; left: 450px;" data-img="img/Cigar Shop.jpg" data-En="Cigar Shop" data-Ko="시가 매장" title="Cigar Shop"></button>
+      <button class="3f location interior transparent" style="clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 100% 29%, 34% 29%, 34% 0%); width: 107px; height: 119px; top: 262px; left: 416px;" data-img="img/Cigar Lounge.jpg" data-En="Cigar Lounge / Piano" data-Ko="시가 라운지 / 피아노" title="Piano"></button>
+      <button class="3f location custom transparent" style="width: 37px; height: 37px; top: 262px; left: 416px;" data-img="img/Small Bar.jpg" data-En="Small Bar" data-Ko="작은 바" title="Small Bar"></button>
+      <button class="3f location custom transparent" style="width: 27px; height: 30px; top: 350px; left: 497px;" data-img="img/1mm.jpg" data-En="1mm" data-Ko="1미리" title="1mm"></button>
+      <button class="3f location interior transparent" style="clip-path: polygon(0% 0%, 0% 100%, 40% 100%, 40% 86%, 64% 86%, 64% 100%, 100% 100%, 100% 0%); width: 103px; height: 67px; top: 230px; left: 497px;" data-img="img/Bar3.jpg" data-En="Bar 3f" data-Ko="바 3층" title="Bar 3f"></button>
+      <button class="3f location custom transparent" style="width: 24px; height: 24px; top: 230px; left: 520px;" data-img="img/B1.jpg" data-En="B1" data-Ko="B1" title="B1"></button>
+      <button class="3f location custom transparent" style="width: 24px; height: 24px; top: 230px; left: 558px;" data-img="img/B2.jpg" data-En="B2" data-Ko="B2" title="B2"></button>
+      <button class="3f location interior transparent" style="clip-path: polygon(30% 0%, 30% 25%, 0% 25%, 0% 100%, 100% 100%, 100% 25%, 73% 25%, 73% 0%); width: 57px; height: 40px; top: 286px; left: 521px;" data-img="img/Bar Backstore.jpg" data-En="Bar Backstore" data-Ko="바 뒤쪽 저장실" title="Bar Backstore"></button>
+      <button class="3f location interior transparent" style="width: 29px; height: 33px; top: 324px; left: 521px;" data-img="img/Washrooms.jpg" data-En="Washrooms" data-Ko="화장실" title="Washrooms"></button>
+      <button class="3f location interior transparent" style="width: 30px; height: 33px; top: 324px; left: 548px;" data-img="img/Bar Freezer.jpg" data-En="Bar Freezer" data-Ko="바 냉장실" title="Bar Freezer"></button>
+      <button class="3f location interior transparent" style="clip-path: polygon(72% 0%, 72% 72%, 0% 72%, 0% 100%, 100% 100%, 100% 0%); width: 79px; height: 85px; top: 296px; left: 521px;" data-img="img/Cocktail Lounge Entrance.jpg" data-En="Cocktail Lounge Entrance / White Hallway" data-Ko="칵테일 라운지 입구 / 흰 계단 복도" title="White Hallway"></button>
+      <button class="3f location custom transparent" style="width: 24px; height: 51px; top: 296px; left: 576px;" data-img="img/Blue Sheet.jpg" data-En="Blue Sheet" data-Ko="블루 시트" title="Blue Sheet"></button>
+      <button class="3f location interior transparent" style="width: 50px; height: 46px; top: 186px; left: 590px;" data-img="img/Cocktail Balcony.jpg" data-En="Cocktail Balcony / New Balcony" data-Ko="칵테일 발코니" title="New Balcony"></button>
+      <button class="3f location interior transparent" style="width: 42px; height: 116px; top: 230px; left: 598px;" data-img="img/Cocktail Lounge.jpg" data-En="Cocktail Lounge" data-Ko="칵테일 라운지" title="Cocktail Lounge"></button>
+      <button class="3f location custom transparent" style="width: 34px; height: 28px; top: 236px; left: 606px;" data-img="img/A1.jpg" data-En="A1" data-Ko="A1" title="A1"></button>
+      <button class="3f location custom transparent" style="width: 34px; height: 28px; top: 264px; left: 606px;" data-img="img/A2.jpg" data-En="A2" data-Ko="A2" title="A2"></button>
+      <button class="3f location custom transparent" style="width: 34px; height: 28px; top: 292px; left: 606px;" data-img="img/A3.jpg" data-En="A3" data-Ko="A3" title="A3"></button>
+      <button class="3f location interior transparent" style="width: 42px; height: 37px; top: 344px; left: 598px;" data-img="img/White Stairs23.jpg" data-En="White Stairs" data-Ko="흰 계단" title="White Stairs"></button>
+      
+      <button class="roof location custom transparent" style="width: 38px; height: 34px; top: 230px; left: 532px;" data-img="img/Skylight.jpg" data-En="Skylight" data-Ko="채광" title="Skylight"></button>
+    </div>
+
+    <div class="setup">
+      <!--
+        <div class="1f/2f/3f S-1f/S-2fW/S-3f reinforcement/rotation/angle/barricade" style="width: 20px; height: 10px; top: 100px; left: 100px; display: none;"></div>
+        <span class="1f/2f/3f S-1f/S-2fW/S-3f rotation/angle" style="top: 100px; left: 100px; display: none;">C S V F K H O</span>
+      -->
+      <div class="1f S-1f reinforcement" style="width: 4px; height: 16px; top: 340px; left: 371px; display: none;"></div>
+      <div class="1f S-1f reinforcement" style="width: 16px; height: 4px; top: 258px; left: 374px; display: none;"></div>
+      <div class="1f S-1f reinforcement" style="width: 4px; height: 15px; top: 284px; left: 405px; display: none;"></div>
+      <div class="1f S-1f reinforcement" style="width: 4px; height: 15px; top: 300px; left: 405px; display: none;"></div>
+      <div class="1f S-1f reinforcement" style="width: 15px; height: 4px; top: 264px; left: 426px; display: none;"></div>
+      <div class="1f S-1f reinforcement" style="width: 15px; height: 4px; top: 264px; left: 442px; display: none;"></div>
+      <div class="1f S-1f reinforcement" style="width: 4px; height: 15px; top: 335px; left: 556px; display: none;"></div>
+      <div class="1f S-1f reinforcement" style="width: 4px; height: 15px; top: 351px; left: 556px; display: none;"></div>
+      <div class="2f S-1f reinforcement" style="width: 13px; height: 13px; top: 358px; left: 536px; display: none;"></div>
+      <div class="1f S-1f angle" style="width: 6px; height: 15px; top: 357px; left: 371px; display: none;"></div>
+      <span class="1f S-1f angle" style="top: 357px; left: 370px; display: none;">F</span>
+      
+      <div class="2f S-2fE reinforcement" style="width: 15px; height: 4px; top: 300px; left: 430px; display: none;"></div>
+      <div class="2f S-2fE reinforcement" style="width: 4px; height: 10px; top: 331px; left: 490px; display: none;"></div>
+      <div class="2f S-2fE reinforcement" style="width: 15px; height: 4px; top: 258px; left: 520px; display: none;"></div>
+      <div class="2f S-2fE reinforcement" style="width: 15px; height: 4px; top: 258px; left: 536px; display: none;"></div>
+      <div class="3f S-2fE reinforcement" style="width: 4px; height: 13px; top: 297px; left: 574px; display: none;"></div>
+      <div class="3f S-2fE reinforcement" style="width: 4px; height: 13px; top: 310px; left: 574px; display: none;"></div>
+      <div class="3f S-2fE reinforcement" style="width: 4px; height: 13px; top: 231px; left: 597px; display: none;"></div>
+      <div class="3f S-2fE reinforcement" style="width: 4px; height: 13px; top: 244px; left: 597px; display: none;"></div>
+      <div class="3f S-2fE reinforcement" style="width: 4px; height: 15px; top: 278px; left: 597px; display: none;"></div>
+      <div class="2f S-2fE rotation" style="width: 14px; height: 4px; top: 308px; left: 614px; display: none;"></div>
+      <span class="2f S-2fE rotation" style="top: 302px; left: 618px; display: none;">C</span>
+      <div class="2f S-2fE rotation" style="width: 4px; height: 14px; top: 354px; left: 564px; display: none;"></div>
+      <span class="2f S-2fE rotation" style="top: 353px; left: 562px; display: none;">V</span>
+      <div class="3f S-2fE rotation" style="width: 14px; height: 14px; top: 325px; left: 611px; display: none;"></div>
+      <div class="2f S-2fE angle" style="width: 18px; height: 4px; top: 308px; left: 518px; display: none;"></div>
+      <span class="2f S-2fE angle" style="top: 302px; left: 523px; display: none;">K</span>
+      <div class="2f S-2fE angle" style="width: 24px; height: 4px; top: 328px; left: 498px; display: none;"></div>
+      <span class="2f S-2fE angle" style="top: 322px; left: 505px; display: none;">K</span>
+      
+      <div class="3f S-3f reinforcement" style="width: 4px; height: 13px; top: 244px; left: 597px; display: none;"></div>
+      <div class="3f S-3f reinforcement" style="width: 4px; height: 13px; top: 297px; left: 574px; display: none;"></div>
+      <div class="3f S-3f reinforcement" style="width: 4px; height: 12px; top: 297px; left: 519px; display: none;"></div>
+      <div class="3f S-3f reinforcement" style="width: 4px; height: 12px; top: 310px; left: 519px; display: none;"></div>
+      <div class="3f S-3f reinforcement" style="width: 4px; height: 13px; top: 341px; left: 519px; display: none;"></div>
+      <div class="3f S-3f reinforcement" style="width: 12px; height: 4px; top: 323px; left: 523px; display: none;"></div>
+      <div class="3f S-3f reinforcement" style="width: 16px; height: 4px; top: 260px; left: 418px; display: none;"></div>
+      <div class="3f S-3f reinforcement" style="width: 16px; height: 4px; top: 260px; left: 434px; display: none;"></div>
+      <div class="3f S-3f rotation" style="width: 5px; height: 7px; top: 231px; left: 597px; display: none;"></div>
+      <span class="3f S-3f rotation" style="top: 225px; left: 596px; display: none;">C</span>
+      <div class="3f S-3f rotation" style="width: 5px; height: 10px; top: 315px; left: 574px; display: none;"></div>
+      <span class="3f S-3f rotation" style="top: 312px; left: 573px; display: none;">S</span>
+      <div class="3f S-3f rotation" style="width: 11px; height: 5px; top: 323px; left: 537px; display: none;"></div>
+      <span class="3f S-3f rotation" style="top: 318px; left: 539px; display: none;">V</span>
+      <div class="3f S-3f rotation" style="width: 14px; height: 14px; top: 325px; left: 611px; display: none;"></div>
+      <div class="3f S-3f angle" style="width: 4px; height: 15px; top: 278px; left: 597px; display: none;"></div>
+      <span class="3f S-3f angle" style="top: 278px; left: 596px; display: none;">O</span>
+      <div class="3f S-3f angle" style="width: 5px; height: 13px; top: 327px; left: 519px; display: none;"></div>
+      <span class="3f S-3f angle" style="top: 326px; left: 518px; display: none;">H</span>
+
+      <span id="unavailable" style="width: 480px; height: 75px; top: 120px; left: 240px; font-size: 30px; background-color: lightpink; display: none;">Sorry! We do not provide setup for this site.<br>This site is not recommended.</span>
+    </div>
+
+    <div id="location_box" style="display: none;">
+      <button id="box_close">X</button>
+      <img id="box_img" src="kafe_dostoyevsky_thumbnail.png" alt="Default Image">
+      <p id="box_text_En">Default Text</p>
+      <p id="box_text_Ko">기본 텍스트</p>
+    </div>
+  </div>
+
+  <script src="kafe_dostoyevsky.js"></script>
+</body>
