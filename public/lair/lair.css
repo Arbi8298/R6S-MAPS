@@ -213,6 +213,11 @@ body{
     text-align: center;
     cursor: default;
 }
+.setup>span:hover{
+    color: transparent;
+    background-color: transparent;
+    text-shadow: -1px -1px 0 transparent, 1px -1px 0 transparent, -1px 1px 0 transparent, 1px 1px 0 transparent;
+}
 
 #location_box{
     height: 225px;
