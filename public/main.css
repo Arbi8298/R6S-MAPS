@@ -33,6 +33,7 @@ body{
     color: white;
     margin-top: 25px;
     margin-left: 10px;
+    cursor: pointer;
 }
 
 #map_list{
