@@ -1,0 +1,562 @@
+window.onload = function() {
+    const b1 = document.getElementsByClassName("b1");
+    const f1 = document.getElementsByClassName("1f");
+    const f2 = document.getElementsByClassName("2f");
+    const roof = document.getElementsByClassName("roof");
+
+    const objective_bomb = document.getElementsByClassName("objective-bomb");
+    const objective_hostage = document.getElementsByClassName("objective-hostage");
+    const objective_secure = document.getElementsByClassName("objective-secure");
+
+    const S_b1 = document.getElementsByClassName("S-b1");
+    const S_b11f = document.getElementsByClassName("S-b11f");
+    const S_1f = document.getElementsByClassName("S-1f");
+    const S_2f = document.getElementsByClassName("S-2f");
+
+    const location_box = document.getElementById("location_box");
+    const location_bundle = document.querySelectorAll(".location");
+    const location_img = document.getElementById("box_img");
+    const location_En = document.getElementById("box_text_En");
+    const location_Ko = document.getElementById("box_text_Ko");
+    const setup_guide = document.getElementsByClassName("setup_guide");
+
+    const unavailable = document.getElementById("unavailable");
+    let timeoutId;
+
+    var gm_none = true;
+    var gm_bomb = false;
+    var gm_hostage = false;
+    var gm_secure = false;
+
+    var bs_none = true;
+    var bs_b1 = false;
+    var bs_b11f = false;
+    var bs_1f = false;
+    var bs_2f = false;
+
+    var f_b1 = false;
+    var f_1f = true;
+    var f_2f = false;
+    var f_roof = false;
+
+    const btn_show_all = document.getElementById("show_all_toggle");
+    const location = document.getElementsByClassName("location");
+    var show_all = false;
+
+    var btn_gm_none = document.getElementById("gm_none");
+    var btn_gm_bomb = document.getElementById("gm_bomb");
+    var btn_gm_hostage = document.getElementById("gm_hostage");
+    var btn_gm_secure = document.getElementById("gm_secure");
+
+    var btn_bs_none = document.getElementById("bs_none");
+    var btn_bs_b1 = document.getElementById("bs_b1");
+    var btn_bs_b11f = document.getElementById("bs_b11f");
+    var btn_bs_1f = document.getElementById("bs_1f");
+    var btn_bs_2f = document.getElementById("bs_2f");
+
+    var btn_f_b1 = document.getElementById("f_b1");
+    var btn_f_1f = document.getElementById("f_1f");
+    var btn_f_2f = document.getElementById("f_2f");
+    var btn_f_roof = document.getElementById("f_roof");
+
+    document.getElementById("gm_none").addEventListener("click", fn_gm_none);
+    document.getElementById("gm_bomb").addEventListener("click", fn_gm_bomb);
+    document.getElementById("gm_hostage").addEventListener("click", fn_gm_hostage);
+    document.getElementById("gm_secure").addEventListener("click", fn_gm_secure);
+
+    document.getElementById("bs_none").addEventListener("click", fn_bs_none);
+    document.getElementById("bs_b1").addEventListener("click", fn_bs_b1);
+    document.getElementById("bs_b11f").addEventListener("click", fn_bs_b11f);
+    document.getElementById("bs_1f").addEventListener("click", fn_bs_1f);
+    document.getElementById("bs_2f").addEventListener("click", fn_bs_2f);
+
+    document.getElementById("f_b1").addEventListener("click", fn_f_b1);
+    document.getElementById("f_1f").addEventListener("click", fn_f_1f);
+    document.getElementById("f_2f").addEventListener("click", fn_f_2f);
+    document.getElementById("f_roof").addEventListener("click", fn_f_roof);
+
+    document.getElementById("show_all_toggle").addEventListener("click", fn_show_all);
+
+    document.getElementById("home_button").addEventListener("click", remove);
+    update();
+
+    let active_button = null;
+    let click_active_button = null;
+    document.getElementById("box_close").addEventListener("click", function(){
+        location_box.style.display = "none";
+        click_active_button.classList.add('transparent');
+        click_active_button = null;
+    });
+    location_bundle.forEach(location => {
+        location.addEventListener("click", () => {
+            location_box.style.display = "block";
+            const img_src = location.getAttribute('data-img');
+            const text_En = location.getAttribute('data-En');
+            const text_Ko = location.getAttribute('data-Ko');
+            location_img.src = img_src;
+            location_En.textContent = text_En;
+            location_Ko.textContent = text_Ko;
+            if (click_active_button !== null){
+                click_active_button.classList.add('transparent');
+                click_active_button = null;
+            }
+            click_active_button = location;
+            click_active_button.classList.remove('transparent');
+        });
+        location.addEventListener("mouseenter", () => {
+            if (active_button === null || active_button !== location) {
+                if (active_button !== null) {
+                    active_button.classList.add('transparent');
+                    active_button = null;
+                }
+                location.classList.remove('transparent');
+                active_button = location;
+                if (click_active_button !== null){
+                    click_active_button.classList.remove('transparent');
+                }
+            }
+        });
+    });
+
+    function fn_show_all(){
+        if (show_all){
+            show_all = false;
+            btn_show_all.textContent = "Show All Location";
+            for (var i = 0; i < location.length; i++) {
+                location[i].classList.add('transparent');
+            }
+        }
+        else{
+            show_all = true;
+            btn_show_all.textContent = "Hide All Location";
+            for (var i = 0; i < location.length; i++) {
+                location[i].classList.remove('transparent');
+            }
+        }
+    }
+
+    function remove(){
+        document.getElementById("gm_none").removeEventListener("click", fn_gm_none);
+        document.getElementById("gm_bomb").removeEventListener("click", fn_gm_bomb);
+        document.getElementById("gm_hostage").removeEventListener("click", fn_gm_hostage);
+        document.getElementById("gm_secure").removeEventListener("click", fn_gm_secure);
+
+        document.getElementById("bs_none").removeEventListener("click", fn_bs_none);
+        document.getElementById("bs_b1").removeEventListener("click", fn_bs_b1);
+        document.getElementById("bs_b11f").removeEventListener("click", fn_bs_b11f);
+        document.getElementById("bs_1f").removeEventListener("click", fn_bs_1f);
+        document.getElementById("bs_2f").removeEventListener("click", fn_bs_2f);
+
+        document.getElementById("f_b1").removeEventListener("click", fn_f_b1);
+        document.getElementById("f_1f").removeEventListener("click", fn_f_1f);
+        document.getElementById("f_2f").removeEventListener("click", fn_f_2f);
+        document.getElementById("f_roof").removeEventListener("click", fn_f_roof);
+    }
+
+    function fn_gm_none(){
+        gm_none = true;
+        gm_bomb = false;
+        gm_hostage = false;
+        gm_secure = false;
+        fn_bs_none();
+        update();
+    }
+    function fn_gm_bomb(){
+        gm_none = false;
+        gm_bomb = true;
+        gm_hostage = false;
+        gm_secure = false;
+        update();
+    }
+    function fn_gm_hostage(){
+        gm_none = false;
+        gm_bomb = false;
+        gm_hostage = true;
+        gm_secure = false;
+        fn_bs_none();
+        update();
+    }
+    function fn_gm_secure(){
+        gm_none = false;
+        gm_bomb = false;
+        gm_hostage = false;
+        gm_secure = true;
+        fn_bs_none();
+        update();
+    }
+
+    function fn_bs_none(){
+        bs_none = true;
+        bs_b1 = false;
+        bs_b11f = false;
+        bs_1f = false;
+        bs_2f = false;
+        for (var i = 0; i < setup_guide.length; i++){
+            setup_guide[i].style.display = "none";
+        }
+        update();
+    }
+    function fn_bs_b1(){
+        bs_none = false;
+        bs_b1 = true;
+        bs_b11f = false;
+        bs_1f = false;
+        bs_2f = false;
+        fn_gm_bomb();
+        for (var i = 0; i < setup_guide.length; i++){
+            setup_guide[i].style.display = "block";
+        }
+        update();
+    }
+    function fn_bs_b11f(){
+        bs_none = false;
+        bs_b1 = false;
+        bs_b11f = true;
+        bs_1f = false;
+        bs_2f = false;
+        fn_gm_bomb();
+        for (var i = 0; i < setup_guide.length; i++){
+            setup_guide[i].style.display = "block";
+        }
+        update();
+    }
+    function fn_bs_1f(){
+        bs_none = false;
+        bs_b1 = false;
+        bs_b11f = false;
+        bs_1f = true;
+        bs_2f = false;
+        fn_gm_bomb();
+        for (var i = 0; i < setup_guide.length; i++){
+            setup_guide[i].style.display = "block";
+        }
+        update();
+    }
+    function fn_bs_2f(){
+        bs_none = false;
+        bs_b1 = false;
+        bs_b11f = false;
+        bs_1f = false;
+        bs_2f = true;
+        fn_gm_bomb();
+        for (var i = 0; i < setup_guide.length; i++){
+            setup_guide[i].style.display = "block";
+        }
+        update();
+    }
+
+    function fn_f_b1(){
+        f_b1 = true;
+        f_1f = false;
+        f_2f = false;
+        f_roof = false;
+        update();
+    }
+    function fn_f_1f(){
+        f_b1 = false;
+        f_1f = true;
+        f_2f = false;
+        f_roof = false;
+        update();
+    }
+    function fn_f_2f(){
+        f_b1 = false;
+        f_1f = false;
+        f_2f = true;
+        f_roof = false;
+        update();
+    }
+    function fn_f_roof(){
+        f_b1 = false;
+        f_1f = false;
+        f_2f = false;
+        f_roof = true;
+        update();
+    }
+
+    function update(){
+        if (f_b1){
+            btn_f_b1.classList.add('pushed');
+            for (var i = 0; i < b1.length; i++) {
+                b1[i].style.display = "block";
+            }
+            run_gm();
+            run_bs();
+            if (bs_none){
+                run_gm();
+            }
+            for (var i = 0; i < f1.length; i++) {
+                f1[i].style.display = "none";
+            }
+            for (var i = 0; i < f2.length; i++) {
+                f2[i].style.display = "none";
+            }
+            for (var i = 0; i < roof.length; i++) {
+                roof[i].style.display = "none";
+            }
+        } else {
+            btn_f_b1.classList.remove('pushed');
+        }
+        if (f_1f){
+            btn_f_1f.classList.add('pushed');
+            for (var i = 0; i < f1.length; i++) {
+                f1[i].style.display = "block";
+            }
+            run_gm();
+            run_bs();
+            if (bs_none){
+                run_gm();
+            }
+            for (var i = 0; i < b1.length; i++) {
+                b1[i].style.display = "none";
+            }
+            for (var i = 0; i < f2.length; i++) {
+                f2[i].style.display = "none";
+            }
+            for (var i = 0; i < roof.length; i++) {
+                roof[i].style.display = "none";
+            }
+        } else {
+            btn_f_1f.classList.remove('pushed');
+        }
+        if (f_2f){
+            btn_f_2f.classList.add('pushed');
+            for (var i = 0; i < f2.length; i++) {
+                f2[i].style.display = "block";
+            }
+            run_gm();
+            run_bs();
+            if (bs_none){
+                run_gm();
+            }
+            for (var i = 0; i < b1.length; i++) {
+                b1[i].style.display = "none";
+            }
+            for (var i = 0; i < f1.length; i++) {
+                f1[i].style.display = "none";
+            }
+            for (var i = 0; i < roof.length; i++) {
+                roof[i].style.display = "none";
+            }
+        } else {
+            btn_f_2f.classList.remove('pushed');
+        }
+        if (f_roof){
+            btn_f_roof.classList.add('pushed');
+            for (var i = 0; i < roof.length; i++) {
+                roof[i].style.display = "block";
+            }
+            run_gm();
+            run_bs();
+            if (bs_none){
+                run_gm();
+            }
+            for (var i = 0; i < b1.length; i++) {
+                b1[i].style.display = "none";
+            }
+            for (var i = 0; i < f1.length; i++) {
+                f1[i].style.display = "none";
+            }
+            for (var i = 0; i < f2.length; i++) {
+                f2[i].style.display = "none";
+            }
+        } else {
+            btn_f_roof.classList.remove('pushed');
+        }
+    }
+
+    function run_gm(){
+        if(gm_none){
+            btn_gm_none.classList.add('pushed');
+            for (var i = 0; i < objective_bomb.length; i++) {
+                objective_bomb[i].style.display = "none";
+            }
+            for (var i = 0; i < objective_hostage.length; i++) {
+                objective_hostage[i].style.display = "none";
+            }
+            for (var i = 0; i < objective_secure.length; i++) {
+                objective_secure[i].style.display = "none";
+            }
+        } else {
+            btn_gm_none.classList.remove('pushed');
+        }
+        if(gm_bomb){
+            btn_gm_bomb.classList.add('pushed');
+            for (var i = 0; i < objective_bomb.length; i++) {
+                objective_bomb[i].style.display = "block";
+            }
+            for (var i = 0; i < objective_hostage.length; i++) {
+                objective_hostage[i].style.display = "none";
+            }
+            for (var i = 0; i < objective_secure.length; i++) {
+                objective_secure[i].style.display = "none";
+            }
+        } else {
+            btn_gm_bomb.classList.remove('pushed');
+        }
+        if(gm_hostage){
+            btn_gm_hostage.classList.add('pushed');
+            for (var i = 0; i < objective_bomb.length; i++) {
+                objective_bomb[i].style.display = "none";
+            }
+            for (var i = 0; i < objective_hostage.length; i++) {
+                objective_hostage[i].style.display = "block";
+            }
+            for (var i = 0; i < objective_secure.length; i++) {
+                objective_secure[i].style.display = "none";
+            }
+        } else {
+            btn_gm_hostage.classList.remove('pushed');
+        }
+        if(gm_secure){
+            btn_gm_secure.classList.add('pushed');
+            for (var i = 0; i < objective_bomb.length; i++) {
+                objective_bomb[i].style.display = "none";
+            }
+            for (var i = 0; i < objective_hostage.length; i++) {
+                objective_hostage[i].style.display = "none";
+            }
+            for (var i = 0; i < objective_secure.length; i++) {
+                objective_secure[i].style.display = "block";
+            }
+        } else {
+            btn_gm_secure.classList.remove('pushed');
+        }
+    }
+
+    function run_bs(){
+        if(bs_none){
+            btn_bs_none.classList.add('pushed');
+            for (var i = 0; i < S_b1.length; i++) {
+                S_b1[i].style.display = "none";
+            }
+            for (var i = 0; i < S_b11f.length; i++) {
+                S_b11f[i].style.display = "none";
+            }
+            for (var i = 0; i < S_1f.length; i++) {
+                S_1f[i].style.display = "none";
+            }
+            for (var i = 0; i < S_2f.length; i++) {
+                S_2f[i].style.display = "none";
+            }
+        } else {
+            btn_bs_none.classList.remove('pushed');
+        }
+        if(bs_b1){
+            btn_bs_b1.classList.add('pushed');
+            for (var i = 0; i < S_b1.length; i++) {
+                S_b1[i].style.display = "block";
+            }
+            for (var i = 0; i < S_b11f.length; i++) {
+                S_b11f[i].style.display = "none";
+            }
+            for (var i = 0; i < S_1f.length; i++) {
+                S_1f[i].style.display = "none";
+            }
+            for (var i = 0; i < S_2f.length; i++) {
+                S_2f[i].style.display = "none";
+            }
+        } else {
+            btn_bs_b1.classList.remove('pushed');
+        }
+        if(bs_b11f){
+            btn_bs_b11f.classList.add('pushed');
+            for (var i = 0; i < S_b1.length; i++) {
+                S_b1[i].style.display = "none";
+            }
+            for (var i = 0; i < S_b11f.length; i++) {
+                S_b11f[i].style.display = "block";
+            }
+            for (var i = 0; i < S_1f.length; i++) {
+                S_1f[i].style.display = "none";
+            }
+            for (var i = 0; i < S_2f.length; i++) {
+                S_2f[i].style.display = "none";
+            }
+            show_notification();
+        } else {
+            btn_bs_b11f.classList.remove('pushed');
+        }
+        if(bs_1f){
+            btn_bs_1f.classList.add('pushed');
+            for (var i = 0; i < S_b1.length; i++) {
+                S_b1[i].style.display = "none";
+            }
+            for (var i = 0; i < S_b11f.length; i++) {
+                S_b11f[i].style.display = "none";
+            }
+            for (var i = 0; i < S_1f.length; i++) {
+                S_1f[i].style.display = "block";
+            }
+            for (var i = 0; i < S_2f.length; i++) {
+                S_2f[i].style.display = "none";
+            }
+        } else {
+            btn_bs_1f.classList.remove('pushed');
+        }
+        if(bs_2f){
+            btn_bs_2f.classList.add('pushed');
+            for (var i = 0; i < S_b1.length; i++) {
+                S_b1[i].style.display = "none";
+            }
+            for (var i = 0; i < S_b11f.length; i++) {
+                S_b11f[i].style.display = "none";
+            }
+            for (var i = 0; i < S_1f.length; i++) {
+                S_1f[i].style.display = "none";
+            }
+            for (var i = 0; i < S_2f.length; i++) {
+                S_2f[i].style.display = "block";
+            }
+        } else {
+            btn_bs_2f.classList.remove('pushed');
+        }
+    }
+
+    let isDragging = false;
+    let offsetX, offsetY;
+
+    location_box.addEventListener('mousedown', startDrag);
+    location_box.addEventListener('mousemove', drag);
+    location_box.addEventListener('mouseup', endDrag);
+
+    function startDrag(e) {
+        isDragging = true;
+        const boxRect = location_box.getBoundingClientRect();
+        offsetX = e.clientX - boxRect.left;
+        offsetY = e.clientY - boxRect.top;
+    }
+
+    function drag(e) {
+        if (!isDragging) return;
+        e.preventDefault();
+
+        const containerRect = document.getElementById('map_container').getBoundingClientRect();
+        let newX = e.clientX - offsetX - containerRect.left;
+        let newY = e.clientY - offsetY - containerRect.top;
+
+        if (newX < 0) newX = 0;
+        if (newY < 0) newY = 0;
+        if (newX + location_box.offsetWidth > containerRect.width) {
+            newX = containerRect.width - location_box.offsetWidth;
+        }
+        if (newY + location_box.offsetHeight > containerRect.height) {
+            newY = containerRect.height - location_box.offsetHeight;
+        }
+
+        location_box.style.left = `${newX}px`;
+        location_box.style.top = `${newY}px`;
+    }
+
+    function endDrag() {
+        isDragging = false;
+    }
+
+    function show_notification() {
+        unavailable.style.display = "inline";
+        clearTimeout(timeoutId);
+        timeoutId = setTimeout(() => {
+            unavailable.style.display = "none";
+        }, 2000);
+    }
+}
